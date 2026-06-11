@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protocol Project</title>
+<title>Public Surface, Private Object</title>
 
 <style>
 * {
@@ -13,244 +13,330 @@
 }
 
 body {
+  background: #f4f2ed;
+  color: #111;
   font-family: Helvetica, Arial, sans-serif;
-  color: white;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(123, 239, 255, 0.75), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(193, 122, 255, 0.7), transparent 30%),
-    radial-gradient(circle at 40% 90%, rgba(255, 245, 160, 0.55), transparent 28%),
-    linear-gradient(135deg, #030303, #101018 45%, #050505);
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1.5px);
-  background-size: 38px 38px;
-  opacity: 0.22;
-  pointer-events: none;
-}
-
-.container {
-  width: 88%;
-  max-width: 1100px;
+main {
+  width: 92%;
+  max-width: 1180px;
   margin: auto;
-  padding: 70px 0;
 }
 
 .hero {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  min-height: 95vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  border-bottom: 1.5px solid #111;
 }
 
-.small-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  letter-spacing: 2px;
+.meta {
+  font-size: 12px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
-  margin-bottom: 40px;
-  opacity: 0.85;
+  line-height: 1.7;
 }
 
 h1 {
-  font-size: clamp(70px, 16vw, 190px);
-  line-height: 0.82;
-  letter-spacing: -8px;
+  font-size: clamp(64px, 12vw, 160px);
+  line-height: 0.86;
+  letter-spacing: -7px;
   text-transform: uppercase;
-  filter: drop-shadow(4px 0 cyan) drop-shadow(-4px 0 magenta);
+  font-weight: 800;
 }
 
 .hero-text {
-  margin-top: 35px;
-  max-width: 580px;
-  font-size: 21px;
-  line-height: 1.5;
-  opacity: 0.88;
+  max-width: 420px;
+  font-size: 17px;
+  line-height: 1.6;
+  border-left: 1.5px solid #111;
+  padding-left: 22px;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.13);
-  border: 1px solid rgba(255,255,255,0.35);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border-radius: 34px;
-  box-shadow:
-    inset 0 0 35px rgba(255,255,255,0.15),
-    0 30px 90px rgba(0,0,0,0.35);
+.grid-section {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 40px;
+  padding: 70px 0;
+  border-bottom: 1.5px solid #111;
 }
 
-.section {
-  margin: 120px 0;
-  padding: 42px;
-}
-
-.label {
+.number {
   font-size: 13px;
-  letter-spacing: 3px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  margin-bottom: 28px;
-  opacity: 0.72;
 }
 
 h2 {
-  font-size: clamp(36px, 6vw, 76px);
+  font-size: clamp(34px, 6vw, 72px);
   line-height: 0.95;
   letter-spacing: -3px;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 p {
   max-width: 760px;
   font-size: 18px;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
-.image-wrap {
-  margin: 35px 0;
-  position: relative;
-}
-
-.image-wrap::after {
-  content: "WET / FRAGILE / TEMPORARY";
-  position: absolute;
-  left: 22px;
-  bottom: 22px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  background: rgba(0,0,0,0.55);
-  padding: 8px 12px;
-  border: 1px solid white;
+.micro {
+  margin-top: 24px;
+  max-width: 520px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  line-height: 1.8;
 }
 
 img {
   width: 100%;
   display: block;
-  border-radius: 28px;
-  filter: contrast(1.08) saturate(1.12);
+  margin: 30px 0;
+  filter: grayscale(100%) contrast(1.12);
+  border: 1.5px solid #111;
 }
 
-.quote {
-  font-size: clamp(34px, 7vw, 90px);
-  line-height: 0.95;
-  letter-spacing: -4px;
-  text-transform: uppercase;
-  filter: blur(0.2px);
+.log {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1.5px solid #111;
+  margin-top: 36px;
 }
 
-.micro {
-  font-size: 12px;
+.log div {
+  min-height: 180px;
+  padding: 18px;
+  border-right: 1.5px solid #111;
+}
+
+.log div:last-child {
+  border-right: none;
+}
+
+.log h3 {
+  font-size: 13px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  opacity: 0.65;
-  max-width: 360px;
-  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.log p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.finding {
+  font-size: clamp(32px, 6vw, 76px);
+  line-height: 1;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+  max-width: 1000px;
+}
+
+.caption {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: -18px;
+  margin-bottom: 28px;
 }
 
 .footer {
-  padding: 40px 0;
-  font-size: 13px;
-  letter-spacing: 2px;
+  padding: 45px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  opacity: 0.65;
+}
+
+@media (max-width: 800px) {
+  .hero,
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+
+  .log {
+    grid-template-columns: 1fr;
+  }
+
+  .log div {
+    border-right: none;
+    border-bottom: 1.5px solid #111;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<main>
 
   <section class="hero">
-    <div class="small-info">
-      <span>01 / Protocol</span>
-      <span>Wet Surface</span>
-      <span>Public Space</span>
-    </div>
+    <div>
+      <div class="meta">
+        Protocol Project<br>
+        Culture Center 4F<br>
+        Water Dispenser
+      </div>
 
-    <h1>Liquid<br>Protocol</h1>
+      <h1>Public<br>Surface,<br>Private<br>Object</h1>
+    </div>
 
     <p class="hero-text">
-      A small intervention around a water dispenser, exploring how a wet cup,
-      a drying rack, and a public surface can blur the boundary between personal desire
-      and social norms.
+      This project observes how a personal object placed in a public space changes
+      the perceived rule of that surface. A cup-drying rack and one cup were installed
+      above the water dispenser on the 4th floor of the Culture Center.
     </p>
   </section>
 
-  <section class="section glass">
-    <div class="label">Concept</div>
-    <h2>When does a surface become usable?</h2>
-    <p>
-      This project begins from a simple desire: to dry a wet cup near a water dispenser.
-      However, the space in front of a restroom is not officially designed for personal storage.
-      By placing a cup-drying rack in this location, the intervention questions how people
-      read, accept, or resist an unofficial rule created by an object.
-    </p>
-    <p class="micro">
-      refraction / temporary occupation / public behavior / personal convenience / liquid glass
-    </p>
-  </section>
-
-  <section class="section glass">
-    <div class="label">Site</div>
-    <h2>Restroom Water Dispenser</h2>
-
-    <div class="image-wrap">
-      <img src="site.jpg" alt="site photograph">
+  <section class="grid-section">
+    <div class="number">01 / Assumption</div>
+    <div>
+      <h2>Temporary occupation</h2>
+      <p>
+        People sometimes place personal belongings in public spaces for convenience.
+        Although everyone understands that occupying a shared surface for a long time
+        is not allowed, short-term use often feels acceptable. I assumed that the water
+        dispenser, especially during exam period, could reveal this ambiguous behavior.
+      </p>
+      <p class="micro">
+        keyword: convenience / hesitation / public rule / temporary use / unofficial occupation
+      </p>
     </div>
-
-    <p>
-      The site is the area around a water dispenser in front of a restroom.
-      It is a functional but ambiguous space: people pass by, drink water, wash cups,
-      and sometimes look for a place to put things down temporarily.
-    </p>
   </section>
 
-  <section class="section glass">
-    <div class="label">Intervention</div>
-    <h2>Cup Drying Rack</h2>
-
-    <div class="image-wrap">
-      <img src="intervention.jpg" alt="intervention photograph">
+  <section class="grid-section">
+    <div class="number">02 / Site</div>
+    <div>
+      <h2>Culture Center 4F Water Dispenser</h2>
+      <img src="site.jpg" alt="site image">
+      <div class="caption">Site condition before intervention</div>
+      <p>
+        The Culture Center is used continuously during exam period. Students stay for long
+        hours, move between study spaces, and repeatedly use the restroom and water dispenser.
+        Even before the intervention, cups or tumblers were occasionally found on top of the dispenser.
+      </p>
     </div>
-
-    <p>
-      The cup-drying rack acts like a small permission sign without words.
-      Its presence suggests that the space might be used for drying or storing cups,
-      even though no official instruction allows it.
-    </p>
   </section>
 
-  <section class="section glass">
-    <div class="label">Observation Question</div>
-    <p class="quote">
-      If one wet cup appears, does the rule of the space begin to change?
-    </p>
+  <section class="grid-section">
+    <div class="number">03 / Intervention</div>
+    <div>
+      <h2>Cup-drying rack as an invitation</h2>
+      <img src="intervention.jpg" alt="intervention image">
+      <div class="caption">Cup-drying rack with one personal cup</div>
+      <p>
+        I placed a cup-drying rack and one cup on top of the dispenser. The rack was intended
+        to act as a subtle invitation: if one object already occupied the surface, would others
+        begin to use the space in a similar way?
+      </p>
+    </div>
   </section>
 
-  <section class="section glass">
-    <div class="label">Reflection</div>
-    <h2>Beyond the Surface</h2>
-    <p>
-      The intervention reveals how social norms are not always fixed by signs or rules.
-      Sometimes, a single object can create a new possibility. The liquid glass style
-      reflects this unstable condition: transparent, distorted, fragile, and constantly
-      shifting depending on how people look at it.
-    </p>
+  <section class="grid-section">
+    <div class="number">04 / Observation Log</div>
+    <div>
+      <h2>Five days of checking</h2>
+      <p>
+        I checked the site two to three times a day. The intervention did not produce the
+        behavior I expected, but the small changes revealed how carefully people read the
+        ownership of objects in public space.
+      </p>
+
+      <div class="log">
+        <div>
+          <h3>Day 1</h3>
+          <p>No visible change. Only my cup remained on the rack.</p>
+        </div>
+        <div>
+          <h3>Day 2</h3>
+          <p>No visible change. The rack was not used by others.</p>
+        </div>
+        <div>
+          <h3>Day 3</h3>
+          <p>A toothbrush set appeared near the intervention.</p>
+        </div>
+        <div>
+          <h3>Day 4</h3>
+          <p>The toothbrush set disappeared. I moved the rack closer to the front edge.</p>
+        </div>
+        <div>
+          <h3>Day 5</h3>
+          <p>Paper cups appeared in front of the rack, but the rack itself was still unused.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid-section">
+    <div class="number">05 / Modification</div>
+    <div>
+      <h2>Making it more visible</h2>
+      <img src="change.jpg" alt="modified intervention image">
+      <div class="caption">The rack was moved closer to the front area</div>
+      <p>
+        After the toothbrush set disappeared, I questioned whether the rack was too hidden
+        near the wall. To make it more noticeable and easier to access, I pulled it closer
+        to the front of the dispenser. I expected this change to encourage more active use.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid-section">
+    <div class="number">06 / Result</div>
+    <div>
+      <h2>Visible, but not usable</h2>
+      <p>
+        The modification increased the visibility of the object, but it did not make people
+        use the rack. Instead, people placed paper cups near the rack without using it directly.
+        This suggests that the surface became slightly more available, while the rack itself
+        remained too private or too specific to touch.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid-section">
+    <div class="number">07 / Finding</div>
+    <div>
+      <p class="finding">
+        An object in public space does not automatically become public.
+      </p>
+      <p class="micro">
+        The failure of the prototype revealed a boundary: people may temporarily use the surface,
+        but they hesitate to use an object that appears to belong to someone else.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid-section">
+    <div class="number">08 / Reflection</div>
+    <div>
+      <h2>Private object, public hesitation</h2>
+      <p>
+        My initial assumption was that the cup-drying rack would invite others to participate.
+        However, the result showed that convenience alone is not enough to change behavior.
+        The rack may have been interpreted as someone’s personal territory rather than a shared tool.
+      </p>
+      <p>
+        This failure became the main finding of the project. Public behavior is shaped not only
+        by need, but also by hesitation, ownership, and the unclear status of an object.
+      </p>
+    </div>
   </section>
 
   <div class="footer">
-    Design Studio I · Protocol Project · 2026
+    <span>Design Studio I</span>
+    <span>Protocol Project</span>
+    <span>2026</span>
   </div>
 
-</div>
+</main>
 
 </body>
 </html>
